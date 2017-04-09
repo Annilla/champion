@@ -12,10 +12,10 @@
 		md-layout.store(md-gutter='8')
 			md-layout(md-flex-xsmall='100', md-flex-small='50')
 				a(href='#')
-					img(src='~assets/img/appstore.svg')
+					img(src='../../assets/img/appstore.svg')
 			md-layout(md-flex-xsmall='100', md-flex-small='50')
 				a(href='#')
-					img(src='~assets/img/googleplay.svg')
+					img(src='../../assets/img/googleplay.svg')
 </template>
 
 <script>
