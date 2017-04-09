@@ -1,35 +1,60 @@
 <template lang='pug'>
   #app
-    img(src="./assets/logo.png")
-    h1 {{ com }}
-    md-button(class='md-primary') Primary
-    md-button(class='md-accent') Accent
-    md-button(class='md-warn') Warn
-    md-button(class='md-primary' disabled) Disabled
-    router-view
+    Downloadapp
+    .mainview
+      component(:is='nav')
+      component(:is='currentView', v-on:page='changeView', v-on:nav='changeNav')
 </template>
 
 <script>
+import Downloadapp from './components/common/Downloadapp.vue'
+import Nav from './components/common/Nav.vue'
+import Login from './components/pages/Login.vue'
+import MyTaskTime from './components/pages/MyTaskTime.vue'
+
 export default {
   name: 'app',
+  components: {
+    Downloadapp,
+    hasNav: Nav,
+    login: Login,
+    myTaskTime: MyTaskTime
+  },
   data: function () {
     return {
-      test: 'test'
+      currentView: 'login',
+      nav: ''
     }
   },
-  computed: {
-    com: () => `${this.test} computed`
+  methods: {
+    changeView: function (data) {
+      this.currentView = data
+    },
+    changeNav: function (data) {
+      this.nav = data
+    }
   }
 }
 </script>
 
 <style lang='scss'>
+@import './assets/scss/variables.scss';
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: $font;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-size: 16px;
+  line-height: 1.5rem;
+  color: $accent;
+  .mainview {
+    display: none;
+    @media screen and (min-width: $pcWid) {
+      display: block;
+    }
+    @media screen and (width: $pcWid) and (height: 1366px) {
+      display: none;  // ipadPro
+    }
+  }
 }
 </style>
