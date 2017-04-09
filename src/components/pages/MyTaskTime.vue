@@ -1,5 +1,6 @@
 <template lang='pug'>
-h1 MyTaskTime
+section.myTaskTime
+  h1 我的待辦清單
 </template>
 
 <script>
@@ -13,4 +14,8 @@ export default {
 
 <style lang='scss'>
 @import '../../assets/scss/variables.scss';
+
+.myTaskTime {
+  margin-left: 60px;
+}
 </style>
