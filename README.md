@@ -1,4 +1,5 @@
-# champion
+# Champion
+Demo: https://annilla.github.io/champion/dist
 
 > A Vue.js project
 
