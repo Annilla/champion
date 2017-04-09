@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     changePage: function () {
-      this.$emit('page', 'myTaskTime')
+      this.$emit('page', 'MyTasks')
       this.$emit('nav', 'hasNav')
     }
   }

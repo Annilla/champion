@@ -146,6 +146,7 @@ export default {
   background-color: $accent;
   color: $white;
   position: fixed;
+  z-index: 1;
   top: 0;
   transition: all .5s;
   overflow: hidden;

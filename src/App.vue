@@ -3,14 +3,15 @@
     Downloadapp
     .mainview
       component(:is='nav')
-      component(:is='currentView', v-on:page='changeView', v-on:nav='changeNav')
+      div(:class="{ pages: pageStart }")
+        component(:is='currentView', v-on:page='changeView', v-on:nav='changeNav')
 </template>
 
 <script>
 import Downloadapp from './components/common/Downloadapp.vue'
 import Nav from './components/common/Nav.vue'
 import Login from './components/pages/Login.vue'
-import MyTaskTime from './components/pages/MyTaskTime.vue'
+import MyTasks from './components/pages/MyTasks.vue'
 
 export default {
   name: 'app',
@@ -18,12 +19,17 @@ export default {
     Downloadapp,
     hasNav: Nav,
     login: Login,
-    myTaskTime: MyTaskTime
+    MyTasks: MyTasks
   },
   data: function () {
     return {
       currentView: 'login',
       nav: ''
+    }
+  },
+  computed: {
+    pageStart: function () {
+      return this.currentView !== 'login'
     }
   },
   methods: {
@@ -54,6 +60,9 @@ export default {
     }
     @media screen and (width: $pcWid) and (height: 1366px) {
       display: none;  // ipadPro
+    }
+    .pages {
+      padding-left: 60px;
     }
   }
 }
