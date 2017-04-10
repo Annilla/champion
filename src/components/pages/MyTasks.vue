@@ -38,7 +38,8 @@ export default {
         act[i].active = false
       }
       act[data].active = true
-    }
+    },
+    changeView: function () {}
   }
 }
 </script>

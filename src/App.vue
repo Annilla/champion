@@ -2,7 +2,8 @@
   #app
     Downloadapp
     .mainview
-      component(:is='nav')
+      div(:class="{ navCover: navOpen }")
+      component(:is='nav', v-on:navcover='coverOut')
       div(:class="{ pages: pageStart }")
         component(:is='currentView', v-on:page='changeView', v-on:nav='changeNav')
 </template>
@@ -24,7 +25,8 @@ export default {
   data: function () {
     return {
       currentView: 'login',
-      nav: ''
+      nav: '',
+      navOpen: false
     }
   },
   computed: {
@@ -38,6 +40,9 @@ export default {
     },
     changeNav: function (data) {
       this.nav = data
+    },
+    coverOut: function (data) {
+      this.navOpen = !data
     }
   }
 }
@@ -60,6 +65,15 @@ export default {
     }
     @media screen and (width: $pcWid) and (height: 1366px) {
       display: none;  // ipadPro
+    }
+    .navCover {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: transparent;
+      z-index: 1;
     }
     .pages {
       padding-left: 60px;

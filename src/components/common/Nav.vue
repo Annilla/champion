@@ -124,6 +124,7 @@ export default {
   methods: {
     toggleNav: function () {
       this.navClose = !this.navClose
+      this.$emit('navcover', this.navClose)
     },
     toggleActive: function (data) {
       const act = this.act
