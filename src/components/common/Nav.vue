@@ -133,6 +133,7 @@ export default {
       }
       act[data].active = true
       this.navClose = true
+      this.$emit('navcover', this.navClose)
     }
   }
 }
