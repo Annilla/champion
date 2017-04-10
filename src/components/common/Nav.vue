@@ -138,7 +138,7 @@ export default {
 </script>
 
 <style lang='scss'>
-@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/base.scss';
 
 .nav {
   width: 325px;
@@ -261,16 +261,7 @@ export default {
   .mainList {
     height: calc(100vh - 60px - 71px - 141px);
     overflow-y: auto;
-    &::-webkit-scrollbar {
-      background: transparent;
-      border-radius: 2px;
-      height: 4px;
-      width: 4px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 2px;
-    }
+    @include scrollBar;
   }
   .info {
     position: absolute;

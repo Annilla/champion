@@ -18,25 +18,3 @@ $white: #FFF;
 $gray1: #B7B7B7;
 $gray2: #CCCCCC;
 $gray3: #EFEFEF;
-
-// keyframes
-@keyframes fadeInUp {
-  0% {
-    transform: translate(0, 50px);
-    opacity: 0;
-  }
-  100% {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
-}
-@keyframes fadeInDown {
-  0% {
-    transform: translate(0, -50px);
-    opacity: 0;
-  }
-  100% {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
-}

@@ -21,15 +21,14 @@ export default {
 </script>
 
 <style lang='scss'>
-@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/base.scss';
 
 .myTasks {
-  background-color: $gray3;
-  height: calc(100vh - 137px);
   .taskWrap {
     padding: 40px 0 40px 40px;
     height: 100%;
     overflow-x: scroll;
+    @include scrollBar;
     .col {
       .group {
         font-size: 28px;
