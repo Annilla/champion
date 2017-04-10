@@ -5,7 +5,7 @@
       .group 今天
       ul.tasks
         each val in ['聯絡代工廠商', '預估花費預算', '討論伺服器架構']
-          li
+          li(@click='openComments')
             .title= val
               .complete
                 svg(version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", viewBox="0 0 30 30", xml:space="preserve")
@@ -47,7 +47,11 @@ export default {
   data: function () {
     return {}
   },
-  methods: {}
+  methods: {
+    openComments: function () {
+      this.$emit('popup', 'comments')
+    }
+  }
 }
 </script>
 

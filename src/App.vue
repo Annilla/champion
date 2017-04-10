@@ -2,31 +2,37 @@
   #app
     Downloadapp
     .mainview
-      div(:class="{ navCover: navOpen }")
+      component(:is='navCover')
       component(:is='nav', v-on:navcover='coverOut')
       div(:class="{ pages: pageStart }")
-        component(:is='currentView', v-on:page='changeView', v-on:nav='changeNav')
+        component(:is='currentView', v-on:page='changeView', v-on:nav='changeNav', v-on:popup='changePopup')
+      component(:is='popup')
 </template>
 
 <script>
 import Downloadapp from './components/common/Downloadapp.vue'
 import Nav from './components/common/Nav.vue'
+import NavCover from './components/common/NavCover.vue'
 import Login from './components/pages/Login.vue'
 import MyTasks from './components/pages/MyTasks.vue'
+import Comments from './components/common/Comments.vue'
 
 export default {
   name: 'app',
   components: {
     Downloadapp,
+    navCover: NavCover,
     hasNav: Nav,
     login: Login,
-    MyTasks: MyTasks
+    myTasks: MyTasks,
+    comments: Comments
   },
   data: function () {
     return {
       currentView: 'login',
       nav: '',
-      navOpen: false
+      popup: '',
+      navCover: ''
     }
   },
   computed: {
@@ -42,7 +48,10 @@ export default {
       this.nav = data
     },
     coverOut: function (data) {
-      this.navOpen = !data
+      this.navCover = !data ? 'navCover' : ''
+    },
+    changePopup: function (data) {
+      this.popup = data
     }
   }
 }
@@ -65,15 +74,6 @@ export default {
     }
     @media screen and (width: $pcWid) and (height: 1366px) {
       display: none;  // ipadPro
-    }
-    .navCover {
-      position: fixed;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      background-color: transparent;
-      z-index: 1;
     }
     .pages {
       padding-left: 60px;

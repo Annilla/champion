@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     changePage: function () {
-      this.$emit('page', 'MyTasks')
+      this.$emit('page', 'myTasks')
       this.$emit('nav', 'hasNav')
     }
   }
