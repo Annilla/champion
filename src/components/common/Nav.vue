@@ -102,12 +102,12 @@ export default {
     return {
       navClose: true,
       act: [
-        { active: true },
-        { active: false },
-        { active: false },
-        { active: false },
-        { active: false },
-        { active: false }
+        { active: true, page: 'myTasks' },
+        { active: false, page: 'projects' },
+        { active: false, page: 'projects' },
+        { active: false, page: 'projects' },
+        { active: false, page: 'projects' },
+        { active: false, page: 'projects' }
       ]
     }
   },
@@ -134,6 +134,7 @@ export default {
       act[data].active = true
       this.navClose = true
       this.$emit('navcover', this.navClose)
+      this.$emit('page', act[data].page)
     }
   }
 }

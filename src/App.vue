@@ -3,10 +3,10 @@
     Downloadapp
     .mainview
       component(:is='navCover')
-      component(:is='nav', v-on:navcover='coverOut')
+      component(:is='nav', v-on:navcover='coverOut', v-on:page='changeView')
       div(:class="{ pages: pageStart }")
         component(:is='currentView', v-on:page='changeView', v-on:nav='changeNav', v-on:popup='changePopup')
-      component(:is='popup')
+      component(:is='popup', v-on:popup='changePopup')
 </template>
 
 <script>
@@ -16,6 +16,7 @@ import NavCover from './components/common/NavCover.vue'
 import Login from './components/pages/Login.vue'
 import MyTasks from './components/pages/MyTasks.vue'
 import Comments from './components/common/Comments.vue'
+import Projects from './components/pages/Projects.vue'
 
 export default {
   name: 'app',
@@ -25,7 +26,8 @@ export default {
     hasNav: Nav,
     login: Login,
     myTasks: MyTasks,
-    comments: Comments
+    comments: Comments,
+    projects: Projects
   },
   data: function () {
     return {
@@ -58,7 +60,7 @@ export default {
 </script>
 
 <style lang='scss'>
-@import './assets/scss/variables.scss';
+@import './assets/scss/base.scss';
 
 #app {
   font-family: $font;

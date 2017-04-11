@@ -2,33 +2,33 @@
 .myTasks
   .taskWrap
     .col
-      .group 今天
+      .group 創新產品
       ul.tasks
-        each val in ['聯絡代工廠商', '預估花費預算', '討論伺服器架構']
+        each val, index in ['找相關產品資料', '分析需求', '討論伺服器架構']
           li(@click='openComments')
             .title= val
               .complete
                 svg(version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", viewBox="0 0 30 30", xml:space="preserve")
                   path.st0(d="M12.7,21.2L5,13.5l1.2-1.2l6.5,6.5L22.7,8.8l1.2,1.2L12.7,21.2")
-            .time Today
+            .time= 'Oct ' + (index*10+1)
               .reply 5
                 svg(version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", viewBox="0 0 21 19.8", xml:space="preserve")
                   path.st0(d="M10.5,0C4,0,0,3.3,0,8.7c-0.1,3.2,1.7,6.2,4.5,7.5c-0.1,0.7-0.4,1.4-0.8,1.9l-1.2,1.7h2c0.1,0,0.2,0,0.3,0c2,0,4-0.9,5.4-2.4c0.1,0,0.1,0,0.2,0c6.6,0,10.5-3.3,10.5-8.7C21,3.3,17,0,10.5,0z M6.1,14.6c-2.5-0.8-4.1-3.3-4-5.9c0-4.2,3.1-6.6,8.4-6.6c5.3,0,8.4,2.5,8.4,6.6c0,2.5-1.1,6.6-8.4,6.6c-0.2,0-0.4,0-0.5,0l-0.6,0L9,15.8c-0.7,0.9-1.6,1.5-2.6,1.8c0.2-0.6,0.3-1.2,0.4-1.8l0.1-0.8L6.1,14.6z")
     .col
-      .group 明天
+      .group 海外拓展
       ul.tasks
-        each val in ['發公文', '準備記者會']
+        each val, index in ['準備研討會事宜', '整理會議筆記']
           li(@click='openComments')
             .title= val
               .complete
                 svg(version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", viewBox="0 0 30 30", xml:space="preserve")
                   path.st0(d="M12.7,21.2L5,13.5l1.2-1.2l6.5,6.5L22.7,8.8l1.2,1.2L12.7,21.2")
-            .time Tomorrow
+            .time= 'Nov ' + (index*3+1)
               .reply 5
                 svg(version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", viewBox="0 0 21 19.8", xml:space="preserve")
                   path.st0(d="M10.5,0C4,0,0,3.3,0,8.7c-0.1,3.2,1.7,6.2,4.5,7.5c-0.1,0.7-0.4,1.4-0.8,1.9l-1.2,1.7h2c0.1,0,0.2,0,0.3,0c2,0,4-0.9,5.4-2.4c0.1,0,0.1,0,0.2,0c6.6,0,10.5-3.3,10.5-8.7C21,3.3,17,0,10.5,0z M6.1,14.6c-2.5-0.8-4.1-3.3-4-5.9c0-4.2,3.1-6.6,8.4-6.6c5.3,0,8.4,2.5,8.4,6.6c0,2.5-1.1,6.6-8.4,6.6c-0.2,0-0.4,0-0.5,0l-0.6,0L9,15.8c-0.7,0.9-1.6,1.5-2.6,1.8c0.2-0.6,0.3-1.2,0.4-1.8l0.1-0.8L6.1,14.6z")
     .col
-      .group 近期
+      .group 產學合作
       ul.tasks
         each val, index in ['製作員工大會簡報', '採購設備', '備份檔案', '通知合作廠商']
           li(@click='openComments')
@@ -36,7 +36,7 @@
               .complete
                 svg(version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", viewBox="0 0 30 30", xml:space="preserve")
                   path.st0(d="M12.7,21.2L5,13.5l1.2-1.2l6.5,6.5L22.7,8.8l1.2,1.2L12.7,21.2")
-            .time= 'Sep ' + (index*3+1)
+            .time= 'Dec ' + (index*7+1)
               .reply 5
                 svg(version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", viewBox="0 0 21 19.8", xml:space="preserve")
                   path.st0(d="M10.5,0C4,0,0,3.3,0,8.7c-0.1,3.2,1.7,6.2,4.5,7.5c-0.1,0.7-0.4,1.4-0.8,1.9l-1.2,1.7h2c0.1,0,0.2,0,0.3,0c2,0,4-0.9,5.4-2.4c0.1,0,0.1,0,0.2,0c6.6,0,10.5-3.3,10.5-8.7C21,3.3,17,0,10.5,0z M6.1,14.6c-2.5-0.8-4.1-3.3-4-5.9c0-4.2,3.1-6.6,8.4-6.6c5.3,0,8.4,2.5,8.4,6.6c0,2.5-1.1,6.6-8.4,6.6c-0.2,0-0.4,0-0.5,0l-0.6,0L9,15.8c-0.7,0.9-1.6,1.5-2.6,1.8c0.2-0.6,0.3-1.2,0.4-1.8l0.1-0.8L6.1,14.6z")
