@@ -104,10 +104,10 @@ export default {
       act: [
         { active: true, page: 'myTasks' },
         { active: false, page: 'projects' },
-        { active: false, page: 'projects' },
-        { active: false, page: 'projects' },
-        { active: false, page: 'projects' },
-        { active: false, page: 'projects' }
+        { active: false, page: 'project', title: '創新產品' },
+        { active: false, page: 'project', title: '海外拓展' },
+        { active: false, page: 'project', title: '資金募集' },
+        { active: false, page: 'project', title: '產學合作' }
       ]
     }
   },
@@ -135,6 +135,7 @@ export default {
       this.navClose = true
       this.$emit('navcover', this.navClose)
       this.$emit('page', act[data].page)
+      this.$emit('pagetitle', act[data].title)
     }
   }
 }

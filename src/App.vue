@@ -3,9 +3,9 @@
     Downloadapp
     .mainview
       component(:is='navCover')
-      component(:is='nav', v-on:navcover='coverOut', v-on:page='changeView')
+      component(:is='nav', v-on:navcover='coverOut', v-on:page='changeView', v-on:pagetitle='changeTitle')
       div(:class="{ pages: pageStart }")
-        component(:is='currentView', v-on:page='changeView', v-on:nav='changeNav', v-on:popup='changePopup')
+        component(:is='currentView', v-on:page='changeView', v-on:nav='changeNav', v-on:popup='changePopup', v-bind:init-title="this.pageTitle")
       component(:is='popup', v-on:popup='changePopup')
 </template>
 
@@ -17,6 +17,7 @@ import Login from './components/pages/Login.vue'
 import MyTasks from './components/pages/MyTasks.vue'
 import Comments from './components/common/Comments.vue'
 import Projects from './components/pages/Projects.vue'
+import Project from './components/pages/Project.vue'
 
 export default {
   name: 'app',
@@ -27,14 +28,16 @@ export default {
     login: Login,
     myTasks: MyTasks,
     comments: Comments,
-    projects: Projects
+    projects: Projects,
+    project: Project
   },
   data: function () {
     return {
       currentView: 'login',
       nav: '',
       popup: '',
-      navCover: ''
+      navCover: '',
+      pageTitle: ''
     }
   },
   computed: {
@@ -54,6 +57,9 @@ export default {
     },
     changePopup: function (data) {
       this.popup = data
+    },
+    changeTitle: function (data) {
+      this.pageTitle = data
     }
   }
 }

@@ -4,8 +4,8 @@ section.projects
   .content
     .name Ann Cheng 的專案
     ul.foldWrap
-      each val in ['創新產品', '創新產品', '創新產品']
-        li
+      each val, index in ['創新產品', '海外拓展', '替代役招聘', '美國市場調查', '資金募集', '產學合作']
+        li(@click='changePage')
           .folder
             .title= val
             .date 建立日期&nbsp;&nbsp;&nbsp;&nbsp;2017 / 06 / 03
@@ -16,13 +16,21 @@ section.projects
               .img.member
                 img(src='../../assets/img/projectsmember.svg')
               .num 5
-          .mine 4
+          .mine= index+1
+      li
+        .folder
+          .add +
 </template>
 
 <script>
 export default {
   data: function () {
     return {}
+  },
+  methods: {
+    changePage: function () {
+      this.$emit('page', 'project')
+    }
   }
 }
 </script>
@@ -56,14 +64,20 @@ export default {
         list-style: none;
         display: block;
         float: left;
-        margin-right: 35px;
+        margin-right: 30px;
+        margin-bottom: 30px;
+        position: relative;
         .folder {
-          background-color: $white;
+          background-image: url('../../assets/img/projects.svg');
+          background-size: auto 100%;
+          background-repeat: no-repeat;
           border-radius: 5px;
-          padding: 40px 25px 15px 25px;
-          width: 200px;
-          height: 180px;
+          padding: 60px 30px 15px 30px;
+          width: 190px;
+          height: 175px;
           box-sizing: content-box;
+          transition: 0.5s;
+          cursor: pointer;
           .title {
             font-size: 25px;
             margin-bottom: 10px;
@@ -74,7 +88,7 @@ export default {
           }
           .detail {
             overflow: hidden;
-            margin-top: calc(230px - 145px);
+            margin-top: 70px;
             div {
               float: left;
             }
@@ -91,6 +105,41 @@ export default {
               line-height: 1.8em;
               margin-left: 8px;
             }
+          }
+        }
+        .mine {
+          width: 40px;
+          height: 40px;
+          background-color: $primary;
+          color: $white;
+          font-weight: bold;
+          border-radius: 25px;
+          font-size: 20px;
+          text-align: center;
+          line-height: 40px;
+          position: absolute;
+          right: 5px;
+          top: 10px;
+          transition: .5s;
+        }
+        .add {
+          margin-top: 55px;
+          font-size: 60px;
+          text-align: center;
+          color: $primary;
+          transition: .5s;
+        }
+        &:hover {
+          .folder {
+            background-image: url('../../assets/img/projects_hover.png');
+          }
+          .mine {
+            transform: scale(1.2);
+            background-color: $gray1;
+          }
+          .add {
+            transform: rotate(180deg);
+            color: $gray1;
           }
         }
       }
