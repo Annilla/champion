@@ -1,42 +1,50 @@
 <template lang='pug'>
-.myTasks
+.projectCat
   .taskWrap
     .col
-      .group 今天
+      .group 緊急
+      .addTask
+        span +
       ul.tasks
         li(v-for="(col, index) in col1", @click='openComments(col.name)')
           .title {{ col.name }}
             .complete
               svg(version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", viewBox="0 0 30 30", xml:space="preserve")
                 path.st0(d="M12.7,21.2L5,13.5l1.2-1.2l6.5,6.5L22.7,8.8l1.2,1.2L12.7,21.2")
-          .time Today
+          .time Oct {{ index*10+1 }}
             .reply 5
               svg(version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", viewBox="0 0 21 19.8", xml:space="preserve")
                 path.st0(d="M10.5,0C4,0,0,3.3,0,8.7c-0.1,3.2,1.7,6.2,4.5,7.5c-0.1,0.7-0.4,1.4-0.8,1.9l-1.2,1.7h2c0.1,0,0.2,0,0.3,0c2,0,4-0.9,5.4-2.4c0.1,0,0.1,0,0.2,0c6.6,0,10.5-3.3,10.5-8.7C21,3.3,17,0,10.5,0z M6.1,14.6c-2.5-0.8-4.1-3.3-4-5.9c0-4.2,3.1-6.6,8.4-6.6c5.3,0,8.4,2.5,8.4,6.6c0,2.5-1.1,6.6-8.4,6.6c-0.2,0-0.4,0-0.5,0l-0.6,0L9,15.8c-0.7,0.9-1.6,1.5-2.6,1.8c0.2-0.6,0.3-1.2,0.4-1.8l0.1-0.8L6.1,14.6z")
     .col
-      .group 明天
+      .group 進行中
+      .addTask
+        span +
       ul.tasks
         li(v-for="(col, index) in col2", @click='openComments(col.name)')
           .title {{ col.name }}
             .complete
               svg(version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", viewBox="0 0 30 30", xml:space="preserve")
                 path.st0(d="M12.7,21.2L5,13.5l1.2-1.2l6.5,6.5L22.7,8.8l1.2,1.2L12.7,21.2")
-          .time Tomorrow
+          .time Nov {{ index*3+1 }}
             .reply 5
               svg(version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", viewBox="0 0 21 19.8", xml:space="preserve")
                 path.st0(d="M10.5,0C4,0,0,3.3,0,8.7c-0.1,3.2,1.7,6.2,4.5,7.5c-0.1,0.7-0.4,1.4-0.8,1.9l-1.2,1.7h2c0.1,0,0.2,0,0.3,0c2,0,4-0.9,5.4-2.4c0.1,0,0.1,0,0.2,0c6.6,0,10.5-3.3,10.5-8.7C21,3.3,17,0,10.5,0z M6.1,14.6c-2.5-0.8-4.1-3.3-4-5.9c0-4.2,3.1-6.6,8.4-6.6c5.3,0,8.4,2.5,8.4,6.6c0,2.5-1.1,6.6-8.4,6.6c-0.2,0-0.4,0-0.5,0l-0.6,0L9,15.8c-0.7,0.9-1.6,1.5-2.6,1.8c0.2-0.6,0.3-1.2,0.4-1.8l0.1-0.8L6.1,14.6z")
     .col
-      .group 近期
+      .group 擱置
+      .addTask
+        span +
       ul.tasks
         li(v-for="(col, index) in col3", @click='openComments(col.name)')
           .title {{ col.name }}
             .complete
               svg(version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", viewBox="0 0 30 30", xml:space="preserve")
                 path.st0(d="M12.7,21.2L5,13.5l1.2-1.2l6.5,6.5L22.7,8.8l1.2,1.2L12.7,21.2")
-          .time Sep {{ index*3+1 }}
+          .time Dec {{ index*7+1 }}
             .reply 5
               svg(version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", viewBox="0 0 21 19.8", xml:space="preserve")
                 path.st0(d="M10.5,0C4,0,0,3.3,0,8.7c-0.1,3.2,1.7,6.2,4.5,7.5c-0.1,0.7-0.4,1.4-0.8,1.9l-1.2,1.7h2c0.1,0,0.2,0,0.3,0c2,0,4-0.9,5.4-2.4c0.1,0,0.1,0,0.2,0c6.6,0,10.5-3.3,10.5-8.7C21,3.3,17,0,10.5,0z M6.1,14.6c-2.5-0.8-4.1-3.3-4-5.9c0-4.2,3.1-6.6,8.4-6.6c5.3,0,8.4,2.5,8.4,6.6c0,2.5-1.1,6.6-8.4,6.6c-0.2,0-0.4,0-0.5,0l-0.6,0L9,15.8c-0.7,0.9-1.6,1.5-2.6,1.8c0.2-0.6,0.3-1.2,0.4-1.8l0.1-0.8L6.1,14.6z")
+    .col
+      .group.addCol + 新增欄位
 </template>
 
 <script>
@@ -44,13 +52,13 @@ export default {
   data: function () {
     return {
       col1: [
-        { name: '聯絡代工廠商' },
-        { name: '預估花費預算' },
+        { name: '找相關產品資料' },
+        { name: '分析需求' },
         { name: '討論伺服器架構' }
       ],
       col2: [
-        { name: '發公文' },
-        { name: '準備記者會' }
+        { name: '準備研討會事宜' },
+        { name: '整理會議筆記' }
       ],
       col3: [
         { name: '製作員工大會簡報' },
@@ -72,14 +80,16 @@ export default {
 <style lang='scss'>
 @import '../../assets/scss/base.scss';
 
-.myTasks {
+.projectCat {
   height: 100%;
+  overflow: hidden;
   overflow-x: scroll;
   overflow-y: hidden;
+  /*@include scrollBar;*/
   .taskWrap {
     padding: 40px 0 40px 40px;
-    height: 100%;
     width: 150%;
+    height: 100%;
     .col {
       float: left;
       margin-right: 40px;
@@ -87,13 +97,44 @@ export default {
       overflow: hidden;
       .group {
         @include pageH2;
+        &.addCol {
+          color: $primary;
+          cursor: pointer;
+          text-decoration: underline;
+          transition: .5s;
+          &:hover {
+            color: $gray1;
+          }
+        }
+      }
+      .addTask {
+        width: 340px;
+        background-color: $white;
+        border-radius: 5px;
+        padding: 20px 30px;
+        cursor: pointer;
+        transition: .5s;
+        border-bottom: 1px solid $gray3;
+        span {
+          display: block;
+          text-align: center;
+          font-size: 30px;
+          color: $primary;
+          transition: .5s;
+        }
+        &:hover {
+          box-shadow: 0 3px 6px $accent_30;
+          span {
+            transform: rotate(180deg);
+            color: $gray1;
+          }
+        }
       }
       ul.tasks {
-        height: calc(100% - 60px);
+        height: calc(100% - 54px - 64px);
         margin: 0;
         padding: 0;
         overflow-y: scroll;
-        display: block;
         @include scrollBar;
         li {
           list-style: none;

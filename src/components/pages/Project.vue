@@ -1,6 +1,6 @@
 <template lang='pug'>
 section.project
-  h1 {{ this.initTitle }}
+  h1 {{ this.title }}
   md-layout
     md-layout.sort(md-flex="33")
       div(:class="{ hide: sortHide }") 排序
@@ -48,32 +48,34 @@ section.project
           path.st0(d="M20.4,14.5c-0.3,0-0.5-0.1-0.7-0.3s-0.3-0.4-0.3-0.7s0.1-0.5,0.3-0.7s0.4-0.3,0.7-0.3c0.3,0,0.5,0.1,0.7,0.3s0.3,0.4,0.3,0.7c0,0.3-0.1,0.5-0.3,0.7S20.7,14.5,20.4,14.5z M21.2,27h-1.6V17h1.6V27z")
         md-tooltip(md-direction="bottom") 專案資訊
   .content
-    component(:is='currentView', v-on:popup='popup')
+    component(:is='currentView', v-on:popup='popup', v-on:tasktitle='changeTaskTitle')
 </template>
 
 <script>
-import MyTasksTime from './MyTasksTime.vue'
-import MyTasksProject from './MyTasksProject.vue'
+import ProjectTime from './ProjectTime.vue'
+import ProjectCategory from './ProjectCategory.vue'
+import ProjectMembers from './ProjectMembers.vue'
 
 export default {
   components: {
-    myTasksTime: MyTasksTime,
-    myTasksProject: MyTasksProject
+    projectTime: ProjectTime,
+    projectCategory: ProjectCategory,
+    projectMembers: ProjectMembers
   },
   data: function () {
     return {
-      currentView: 'myTasksProject',
+      currentView: 'projectCategory',
       act: [
-        {active: true, view: 'myTasksProject'},
-        {active: false, view: 'myTasksTime'}
+        {active: true, view: 'projectCategory'},
+        {active: false, view: 'projectTime'}
       ],
       title: this.initTitle,
       pro: [
-        {active: true, view: 'myTasksProject'},
-        {active: false, view: 'myTasksProject'},
-        {active: false, view: 'myTasksProject'},
-        {active: false, view: 'myTasksProject'},
-        {active: false, view: 'myTasksProject'}
+        {active: true, view: 'projectCategory'},
+        {active: false, view: 'projectMembers'},
+        {active: false, view: 'projectCategory'},
+        {active: false, view: 'projectCategory'},
+        {active: false, view: 'projectCategory'}
       ]
     }
   },
@@ -108,6 +110,9 @@ export default {
       }
       pro[data].active = true
       this.currentView = pro[data].view
+    },
+    changeTaskTitle: function (data) {
+      this.$emit('tasktitle', data)
     }
   }
 }

@@ -4,19 +4,18 @@ section.projects
   .content
     .name Ann Cheng 的專案
     ul.foldWrap
-      each val, index in ['創新產品', '海外拓展', '替代役招聘', '美國市場調查', '資金募集', '產學合作']
-        li(@click='changePage')
-          .folder
-            .title= val
-            .date 建立日期&nbsp;&nbsp;&nbsp;&nbsp;2017 / 06 / 03
-            .detail
-              .img
-                img(src='../../assets/img/projectstask.svg')
-              .num 23
-              .img.member
-                img(src='../../assets/img/projectsmember.svg')
-              .num 5
-          .mine= index+1
+      li(v-for="(p, index) in projects", @click='changePage(p.name)')
+        .folder
+          .title {{ p.name }}
+          .date 建立日期&nbsp;&nbsp;&nbsp;&nbsp;2017 / 06 / 03
+          .detail
+            .img
+              img(src='../../assets/img/projectstask.svg')
+            .num 23
+            .img.member
+              img(src='../../assets/img/projectsmember.svg')
+            .num 5
+        .mine {{ index + 1 }}
       li
         .folder
           .add +
@@ -25,11 +24,21 @@ section.projects
 <script>
 export default {
   data: function () {
-    return {}
+    return {
+      projects: [
+        { name: '創新產品' },
+        { name: '海外拓展' },
+        { name: '替代役招聘' },
+        { name: '美國市場調查' },
+        { name: '資金募集' },
+        { name: '產學合作' }
+      ]
+    }
   },
   methods: {
-    changePage: function () {
+    changePage: function (pagetitle) {
       this.$emit('page', 'project')
+      this.$emit('pagetitle', pagetitle)
     }
   }
 }

@@ -12,7 +12,7 @@ section.myTaskTime
         path.st0(d="M30,17.1c0-1.2-1-2.1-2.2-2.1h-2.6v-4.5H14.7V15h-2.5C11,15,10,15.9,10,17.1l0,10.3c0,1.1,1,2.1,2.1,2.1c0,0,0,0,0.1,0l15.6,0c1.2,0.1,2.2-0.9,2.2-2.1L30,17.1z M16.7,12.5h6.5V15h-6.5V12.5z M27.8,27.5l-15.7,0c-0.1,0-0.1-0.1-0.1-0.1l0-10.3c0-0.1,0.1-0.1,0.1-0.1c0,0,0,0,0,0l0,0l2.6,0v0h10.5v0l2.7,0c0.1,0,0.1,0.1,0.1,0.1l0,10.3C28,27.4,27.9,27.5,27.8,27.5z")
       md-tooltip(md-direction="bottom") 依專案排序
   .content
-    component(:is='currentView', v-on:popup='popup')
+    component(:is='currentView', v-on:popup='popup', v-on:tasktitle='changeTaskTitle')
 </template>
 
 <script>
@@ -44,6 +44,9 @@ export default {
     },
     popup: function (data) {
       this.$emit('popup', data)
+    },
+    changeTaskTitle: function (data) {
+      this.$emit('tasktitle', data)
     }
   }
 }

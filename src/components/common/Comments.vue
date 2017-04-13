@@ -5,7 +5,7 @@
       polygon.st0(points="40,3 37,0 20,17 3,0 0,3 17,20 0,37 3,40 20,23 37,40 37,40 40,37 23,20 ")
   .commentWrap
     md-layout.top
-      md-layout.title(md-flex="80") 聯絡代工廠商
+      md-layout.title(md-flex="80") {{ this.title }}
       md-layout.date(md-align="end") Oct 10
         .head
           img(src='../../assets/img/head1.jpg', width='100%', height='auto')
@@ -51,7 +51,12 @@
 <script>
 export default {
   data: function () {
-    return {}
+    return {
+      title: this.initTitle
+    }
+  },
+  props: {
+    initTitle: String
   },
   methods: {
     closePopup: function () {

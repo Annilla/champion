@@ -5,8 +5,8 @@
       component(:is='navCover')
       component(:is='nav', v-on:navcover='coverOut', v-on:page='changeView', v-on:pagetitle='changeTitle')
       div(:class="{ pages: pageStart }")
-        component(:is='currentView', v-on:page='changeView', v-on:nav='changeNav', v-on:popup='changePopup', v-bind:init-title="this.pageTitle")
-      component(:is='popup', v-on:popup='changePopup')
+        component(:is='currentView', v-on:page='changeView', v-on:nav='changeNav', v-on:popup='changePopup', v-on:pagetitle='changeTitle', v-on:tasktitle='changeTaskTitle', v-bind:init-title="this.pageTitle")
+      component(:is='popup', v-on:popup='changePopup', v-bind:init-title="this.taskTitle")
 </template>
 
 <script>
@@ -37,7 +37,8 @@ export default {
       nav: '',
       popup: '',
       navCover: '',
-      pageTitle: ''
+      pageTitle: '',
+      taskTitle: ''
     }
   },
   computed: {
@@ -60,6 +61,9 @@ export default {
     },
     changeTitle: function (data) {
       this.pageTitle = data
+    },
+    changeTaskTitle: function (data) {
+      this.taskTitle = data
     }
   }
 }
