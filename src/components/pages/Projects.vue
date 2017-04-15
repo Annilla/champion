@@ -68,6 +68,9 @@ export default {
       overflow: auto;
       padding: 0;
       @include scrollBar;
+      &::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.1);
+      }
       li {
         margin: 0;
         list-style: none;

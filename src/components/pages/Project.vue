@@ -1,6 +1,6 @@
 <template lang='pug'>
 section.project
-  h1 {{ this.title }}
+  h1 {{ this.initTitle }}
   md-layout
     md-layout.sort(md-flex="33")
       div(:class="{ hide: sortHide }") 排序
@@ -69,7 +69,6 @@ export default {
         {active: true, view: 'projectCategory'},
         {active: false, view: 'projectTime'}
       ],
-      title: this.initTitle,
       pro: [
         {active: true, view: 'projectCategory'},
         {active: false, view: 'projectMembers'},

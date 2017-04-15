@@ -3,8 +3,8 @@
   .name 專案成員
     span.numbers 25
   .memberWrap
-    md-layout
-      md-layout(md-flex="25")
+    md-layout(md-gutter="24")
+      md-layout.inputWrap(md-flex="25")
         md-layout.input.search(md-flex="100")
           md-layout
             md-input-container
@@ -32,20 +32,55 @@
             .td 帳號
             .td 權限
             .td 退出專案
-          .tr
-            .td
-              img
-              | Alex
-            .td ann8534621@gmail.com
-            .td 成員
-            .td
-              .remove -
+        .memWrap
+          .table
+            .tr(v-for='member in members')
+              .td
+                img(:src='member.img', width='100%', height='auto')
+                | {{ member.name }}
+              .td {{ member.account }}
+              .td {{ member.role }}
+              .td
+                .remove
 </template>
 
 <script>
 export default {
   data: function () {
-    return {}
+    return {
+      members: [
+        {
+          name: 'Alex',
+          account: 'ann8534621@gmail.com',
+          role: '成員',
+          img: 'https://placeimg.com/60/60/people?1'
+        },
+        {
+          name: 'Bob',
+          account: 'abe3516315@gmail.com',
+          role: '成員',
+          img: 'https://placeimg.com/60/60/people?2'
+        },
+        {
+          name: 'Cam',
+          account: 'camdklul@gmail.com',
+          role: '專案經理',
+          img: 'https://placeimg.com/60/60/people?8'
+        },
+        {
+          name: 'Dennis',
+          account: 'clkji@gmail.com',
+          role: '領導者',
+          img: 'https://placeimg.com/60/60/people?4'
+        },
+        {
+          name: 'Eason',
+          account: 'eason@gmail.com',
+          role: '成員',
+          img: 'https://placeimg.com/60/60/people?5'
+        }
+      ]
+    }
   },
   methods: {}
 }
@@ -73,6 +108,9 @@ export default {
     }
   }
   .memberWrap {
+    .inputWrap {
+      height: 0px;
+    }
     .input {
       width: 100%;
       background-color: $white;
@@ -94,6 +132,99 @@ export default {
         svg {
           .st0 {
             fill: $gray1;
+          }
+        }
+      }
+    }
+    .memWrap {
+      width: 100%;
+      height: calc(100% - 109px - 25px);
+      overflow-y: scroll;
+      @include scrollBar;
+      &::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.1);
+      }
+    }
+    .table {
+      width: 100%;
+      background-color: $white;
+      display: table;
+      .tr {
+        display: table-row;
+        transition: .5s;
+        &:not(.title):hover {
+          box-shadow: 0 3px 6px $accent_30;
+          .td:first-child {
+            &:after {
+              content: '';
+              display: block;
+              width: 5px;
+              height: 100%;
+              position: absolute;
+              left: 0;
+              top: 0;
+              background-color: $primary;
+            }
+          }
+        }
+        .td {
+          display: table-cell;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          position: relative;
+          &:nth-child(1) {
+            padding-left: 40px;
+            color: $black;
+            font-weight: bold;
+            width: 30%;
+            img {
+              width: 60px;
+              height: 60px;
+              border-radius: 30px;
+              margin-right: 20px;
+            }
+          }
+          &:nth-child(3) {
+            text-align: right;
+            color: $gray1;
+          }
+          &:nth-child(4) {
+            text-align: center;
+            padding-right: 20px;
+            width: 20%;
+          }
+          .remove {
+            display: inline-block;
+            text-align: center;
+            padding: 3px 10px;
+            border-radius: 20px;
+            border: 1px solid $gray1;
+            cursor: pointer;
+            transition: .5s;
+            &:before {
+              content: '';
+              display: inline-block;
+              width: 10px;
+              height: 1px;
+              background-color: $gray1;
+              transform: translateY(-5px);
+            }
+            &:hover {
+              border: 1px solid $warn;
+              background-color: $warn;
+              &:before {
+               background-color: $white;
+              }
+            }
+          }
+        }
+        &.title {
+          .td {
+            font-size: 20px;
+            color: $accent_50;
+            font-weight: bold;
+            padding-top: 30px;
+            padding-bottom: 30px;
           }
         }
       }

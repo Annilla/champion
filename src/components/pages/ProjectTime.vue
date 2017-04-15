@@ -83,7 +83,6 @@ export default {
   overflow: hidden;
   overflow-x: scroll;
   overflow-y: hidden;
-  /*@include scrollBar;*/
   .taskWrap {
     padding: 40px 0 40px 40px;
     width: 150%;
@@ -134,6 +133,9 @@ export default {
         padding: 0;
         overflow-y: scroll;
         @include scrollBar;
+        &::-webkit-scrollbar-thumb {
+          background: rgba(0, 0, 0, 0.1);
+        }
         li {
           list-style: none;
           display: block;

@@ -95,6 +95,9 @@ export default {
         overflow-y: scroll;
         display: block;
         @include scrollBar;
+        &::-webkit-scrollbar-thumb {
+          background: rgba(0, 0, 0, 0.1);
+        }
         li {
           list-style: none;
           display: block;
