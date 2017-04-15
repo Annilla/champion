@@ -83,7 +83,7 @@ export default {
   },
   computed: {
     sortHide: function () {
-      return this.pro[1].active || this.pro[2].active || this.pro[3].active || this.pro[4].active
+      return this.currentView === 'projectMembers'
     }
   },
   methods: {
@@ -108,6 +108,9 @@ export default {
         pro[i].active = false
       }
       pro[data].active = true
+      this.pro[2].view = pro[data].view
+      this.pro[3].view = pro[data].view
+      this.pro[4].view = pro[data].view
       this.currentView = pro[data].view
     },
     changeTaskTitle: function (data) {

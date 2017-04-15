@@ -1,7 +1,7 @@
 <template lang='pug'>
 .members
   .name 專案成員
-    span.numbers 25
+    span.numbers 5
   .memberWrap
     md-layout(md-gutter="24")
       md-layout.inputWrap(md-flex="25")
@@ -116,6 +116,7 @@ export default {
       background-color: $white;
       padding: 5px 25px 5px 40px;
       margin-bottom: 25px;
+      border-radius: 5px;
     }
     .icon {
       width: 30px;

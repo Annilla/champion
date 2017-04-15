@@ -18,6 +18,8 @@ import MyTasks from './components/pages/MyTasks.vue'
 import Comments from './components/common/Comments.vue'
 import Projects from './components/pages/Projects.vue'
 import Project from './components/pages/Project.vue'
+import TeamMembers from './components/pages/TeamMembers.vue'
+import Me from './components/pages/Me.vue'
 
 export default {
   name: 'app',
@@ -29,7 +31,9 @@ export default {
     myTasks: MyTasks,
     comments: Comments,
     projects: Projects,
-    project: Project
+    project: Project,
+    teamMembers: TeamMembers,
+    me: Me
   },
   data: function () {
     return {

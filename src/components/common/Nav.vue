@@ -6,7 +6,7 @@ nav.nav(:class="{ close: navClose }")
       .line.middle
       .line.bottom
     .team
-      md-list.btns
+      md-list.btns(@click.native='changePage("teamMembers")')
         md-button.btn
           md-list-item
             md-layout
@@ -28,7 +28,7 @@ nav.nav(:class="{ close: navClose }")
                 md-layout(md-flex="70")
                   .txt 我的待辦清單
                 md-layout(md-flex="30")
-                  .num 8
+                  .num 21
         md-button.btn.projects(:class="{ active: act[1].active, activeInner: checkProject }", @click.native='toggleActive(1)')
           md-list-item
             md-layout
@@ -46,7 +46,7 @@ nav.nav(:class="{ close: navClose }")
                 md-layout(md-flex="70")
                   .txt 創新產品
                 md-layout(md-flex="30")
-                  .num 6
+                  .num 1
         md-button.btn.project(:class="{ active: act[3].active }", @click.native='toggleActive(3)')
           md-list-item
             md-layout
@@ -64,10 +64,30 @@ nav.nav(:class="{ close: navClose }")
                 .icon
               md-layout(md-flex="75")
                 md-layout(md-flex="70")
+                  .txt 替代役招聘
+                md-layout(md-flex="30")
+                  .num 3
+        md-button.btn.project(:class="{ active: act[5].active }", @click.native='toggleActive(5)')
+          md-list-item
+            md-layout
+              md-layout
+                .icon
+              md-layout(md-flex="75")
+                md-layout(md-flex="70")
+                  .txt 美國市場調查
+                md-layout(md-flex="30")
+                  .num 4
+        md-button.btn.project(:class="{ active: act[6].active }", @click.native='toggleActive(6)')
+          md-list-item
+            md-layout
+              md-layout
+                .icon
+              md-layout(md-flex="75")
+                md-layout(md-flex="70")
                   .txt 資金募集
                 md-layout(md-flex="30")
-                  .num 1
-        md-button.btn.project(:class="{ active: act[5].active }", @click.native='toggleActive(5)')
+                  .num 5
+        md-button.btn.project(:class="{ active: act[7].active }", @click.native='toggleActive(7)')
           md-list-item
             md-layout
               md-layout
@@ -76,10 +96,10 @@ nav.nav(:class="{ close: navClose }")
                 md-layout(md-flex="70")
                   .txt 產學合作
                 md-layout(md-flex="30")
-                  .num 1
+                  .num 6
     .info
       md-list.btns
-        md-button.btn.me
+        md-button.btn.me(@click.native='changePage("me")')
           md-list-item
             md-layout
               md-layout
@@ -106,6 +126,8 @@ export default {
         { active: false, page: 'projects' },
         { active: false, page: 'project', title: '創新產品' },
         { active: false, page: 'project', title: '海外拓展' },
+        { active: false, page: 'project', title: '替代役招聘' },
+        { active: false, page: 'project', title: '美國市場調查' },
         { active: false, page: 'project', title: '資金募集' },
         { active: false, page: 'project', title: '產學合作' }
       ]
@@ -136,6 +158,15 @@ export default {
       this.$emit('navcover', this.navClose)
       this.$emit('page', act[data].page)
       this.$emit('pagetitle', act[data].title)
+    },
+    changePage: function (data) {
+      const act = this.act
+      for (var i = 0; i < act.length; i++) {
+        act[i].active = false
+      }
+      this.navClose = true
+      this.$emit('navcover', this.navClose)
+      this.$emit('page', data)
     }
   }
 }
