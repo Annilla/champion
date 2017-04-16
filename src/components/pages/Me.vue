@@ -46,15 +46,22 @@ section.me
       .col.set
         .title 設定
         .card
-          md-list
+          md-list.list
             md-list-item
               md-layout.listIcon(md-flex="10")
                 img(src='../../assets/img/color.svg')
               md-layout.txt 更換主題色彩
+              md-layout(md-align="end")
+                .tmp.green
+                .tmp.white
+                .tmp.blue
             md-list-item
               md-layout.listIcon(md-flex="10")
                 img(src='../../assets/img/bell.svg')
               md-layout.txt 設置桌面提醒
+              md-layout.status(md-align="end") {{ notifyStatus }}
+              md-layout(md-align="end", md-flex="15")
+                md-switch.md-primary.notify(v-model="notify", id="notify", name="notify")
             md-button.button
               md-list-item
                 md-layout.listIcon(md-flex="10")
@@ -74,7 +81,13 @@ export default {
   data: function () {
     return {
       nickname: 'Ann Cheng',
-      email: 'ann8534621@gmail.com'
+      email: 'ann8534621@gmail.com',
+      notify: true
+    }
+  },
+  computed: {
+    notifyStatus: function () {
+      return this.notify ? 'ON' : 'OFF'
     }
   },
   methods: {
@@ -184,11 +197,44 @@ export default {
         }
       }
       &.set {
+        .list {
+          padding: 0;
+        }
         .listIcon {
           padding: 25px 0;
           img {
             width: 20px;
             height: 20px;
+          }
+        }
+        .tmp {
+          width: 30px;
+          height: 30px;
+          border-radius: 15px;
+          display: inline-block;
+          margin: 0 5px;
+          cursor: pointer;
+          background-repeat: no-repeat;
+          background-size: 40px;
+          background-position: center;
+          &.green {
+            background-color: $primary;
+            background-image: url('../../assets/img/tmp.svg');
+          }
+          &.white {
+            background-color: $white;
+            border: 1px solid $gray1;
+          }
+          &.blue {
+            background-color: #00AFCB;
+          }
+        }
+        .status {
+          color: $primary;
+        }
+        .notify {
+          .md-switch-thumb {
+            background-color: $primary;
           }
         }
         .button {

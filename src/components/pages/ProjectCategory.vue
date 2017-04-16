@@ -12,9 +12,8 @@
               svg(version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", viewBox="0 0 30 30", xml:space="preserve")
                 path.st0(d="M12.7,21.2L5,13.5l1.2-1.2l6.5,6.5L22.7,8.8l1.2,1.2L12.7,21.2")
           .time Oct {{ index*10+1 }}
-            .reply 5
-              svg(version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", viewBox="0 0 21 19.8", xml:space="preserve")
-                path.st0(d="M10.5,0C4,0,0,3.3,0,8.7c-0.1,3.2,1.7,6.2,4.5,7.5c-0.1,0.7-0.4,1.4-0.8,1.9l-1.2,1.7h2c0.1,0,0.2,0,0.3,0c2,0,4-0.9,5.4-2.4c0.1,0,0.1,0,0.2,0c6.6,0,10.5-3.3,10.5-8.7C21,3.3,17,0,10.5,0z M6.1,14.6c-2.5-0.8-4.1-3.3-4-5.9c0-4.2,3.1-6.6,8.4-6.6c5.3,0,8.4,2.5,8.4,6.6c0,2.5-1.1,6.6-8.4,6.6c-0.2,0-0.4,0-0.5,0l-0.6,0L9,15.8c-0.7,0.9-1.6,1.5-2.6,1.8c0.2-0.6,0.3-1.2,0.4-1.8l0.1-0.8L6.1,14.6z")
+            .head
+              img(:src='"https://placeimg.com/35/35/people?"+(index*10+1)')
     .col
       .group 進行中
       .addTask
@@ -26,9 +25,8 @@
               svg(version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", viewBox="0 0 30 30", xml:space="preserve")
                 path.st0(d="M12.7,21.2L5,13.5l1.2-1.2l6.5,6.5L22.7,8.8l1.2,1.2L12.7,21.2")
           .time Nov {{ index*3+1 }}
-            .reply 5
-              svg(version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", viewBox="0 0 21 19.8", xml:space="preserve")
-                path.st0(d="M10.5,0C4,0,0,3.3,0,8.7c-0.1,3.2,1.7,6.2,4.5,7.5c-0.1,0.7-0.4,1.4-0.8,1.9l-1.2,1.7h2c0.1,0,0.2,0,0.3,0c2,0,4-0.9,5.4-2.4c0.1,0,0.1,0,0.2,0c6.6,0,10.5-3.3,10.5-8.7C21,3.3,17,0,10.5,0z M6.1,14.6c-2.5-0.8-4.1-3.3-4-5.9c0-4.2,3.1-6.6,8.4-6.6c5.3,0,8.4,2.5,8.4,6.6c0,2.5-1.1,6.6-8.4,6.6c-0.2,0-0.4,0-0.5,0l-0.6,0L9,15.8c-0.7,0.9-1.6,1.5-2.6,1.8c0.2-0.6,0.3-1.2,0.4-1.8l0.1-0.8L6.1,14.6z")
+            .head
+              img(:src='"https://placeimg.com/35/35/people?"+(index*3+2)')
     .col
       .group 擱置
       .addTask
@@ -40,9 +38,8 @@
               svg(version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", viewBox="0 0 30 30", xml:space="preserve")
                 path.st0(d="M12.7,21.2L5,13.5l1.2-1.2l6.5,6.5L22.7,8.8l1.2,1.2L12.7,21.2")
           .time Dec {{ index*7+1 }}
-            .reply 5
-              svg(version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", viewBox="0 0 21 19.8", xml:space="preserve")
-                path.st0(d="M10.5,0C4,0,0,3.3,0,8.7c-0.1,3.2,1.7,6.2,4.5,7.5c-0.1,0.7-0.4,1.4-0.8,1.9l-1.2,1.7h2c0.1,0,0.2,0,0.3,0c2,0,4-0.9,5.4-2.4c0.1,0,0.1,0,0.2,0c6.6,0,10.5-3.3,10.5-8.7C21,3.3,17,0,10.5,0z M6.1,14.6c-2.5-0.8-4.1-3.3-4-5.9c0-4.2,3.1-6.6,8.4-6.6c5.3,0,8.4,2.5,8.4,6.6c0,2.5-1.1,6.6-8.4,6.6c-0.2,0-0.4,0-0.5,0l-0.6,0L9,15.8c-0.7,0.9-1.6,1.5-2.6,1.8c0.2-0.6,0.3-1.2,0.4-1.8l0.1-0.8L6.1,14.6z")
+            .head
+              img(:src='"https://placeimg.com/35/35/people?"+(index*7+3)')
     .col
       .group.addCol + 新增欄位
 </template>
@@ -185,16 +182,13 @@ export default {
           }
           .time {
             color: $gray1;
-            .reply {
+            line-height: 35px;
+            .head {
               float: right;
-              color: $warn;
-              line-height: 27px;
-              svg {
-                width: 18px;
-                height: 18px;
-                margin-top: -3px;
-                margin-left: 10px;
-                fill: $warn;
+              img {
+                width: 35px;
+                height: 35px;
+                border-radius: 18px;
               }
             }
           }
