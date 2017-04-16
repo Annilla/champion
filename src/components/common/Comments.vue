@@ -130,7 +130,7 @@ export default {
     }
     .diaWrap {
       background-color: $white;
-      height: calc(100vh - 181px - 106px - 120px);
+      height: calc(100vh - 181px - 20px - 122px);
       overflow-y: scroll;
       @include scrollBar;
       &::-webkit-scrollbar-thumb {
