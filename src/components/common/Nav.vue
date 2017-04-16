@@ -6,7 +6,7 @@ nav.nav(:class="{ close: navClose }")
       .line.middle
       .line.bottom
     .team
-      md-list.btns
+      md-list.btns(@click.native='changePage("teamMembers")')
         md-button.btn
           md-list-item
             md-layout
@@ -28,7 +28,7 @@ nav.nav(:class="{ close: navClose }")
                 md-layout(md-flex="70")
                   .txt 我的待辦清單
                 md-layout(md-flex="30")
-                  .num 8
+                  .num 21
         md-button.btn.projects(:class="{ active: act[1].active, activeInner: checkProject }", @click.native='toggleActive(1)')
           md-list-item
             md-layout
@@ -46,7 +46,7 @@ nav.nav(:class="{ close: navClose }")
                 md-layout(md-flex="70")
                   .txt 創新產品
                 md-layout(md-flex="30")
-                  .num 6
+                  .num 1
         md-button.btn.project(:class="{ active: act[3].active }", @click.native='toggleActive(3)')
           md-list-item
             md-layout
@@ -64,10 +64,30 @@ nav.nav(:class="{ close: navClose }")
                 .icon
               md-layout(md-flex="75")
                 md-layout(md-flex="70")
+                  .txt 替代役招聘
+                md-layout(md-flex="30")
+                  .num 3
+        md-button.btn.project(:class="{ active: act[5].active }", @click.native='toggleActive(5)')
+          md-list-item
+            md-layout
+              md-layout
+                .icon
+              md-layout(md-flex="75")
+                md-layout(md-flex="70")
+                  .txt 美國市場調查
+                md-layout(md-flex="30")
+                  .num 4
+        md-button.btn.project(:class="{ active: act[6].active }", @click.native='toggleActive(6)')
+          md-list-item
+            md-layout
+              md-layout
+                .icon
+              md-layout(md-flex="75")
+                md-layout(md-flex="70")
                   .txt 資金募集
                 md-layout(md-flex="30")
-                  .num 1
-        md-button.btn.project(:class="{ active: act[5].active }", @click.native='toggleActive(5)')
+                  .num 5
+        md-button.btn.project(:class="{ active: act[7].active }", @click.native='toggleActive(7)')
           md-list-item
             md-layout
               md-layout
@@ -76,10 +96,10 @@ nav.nav(:class="{ close: navClose }")
                 md-layout(md-flex="70")
                   .txt 產學合作
                 md-layout(md-flex="30")
-                  .num 1
+                  .num 6
     .info
       md-list.btns
-        md-button.btn.me
+        md-button.btn.me(@click.native='changePage("me")')
           md-list-item
             md-layout
               md-layout
@@ -102,12 +122,14 @@ export default {
     return {
       navClose: true,
       act: [
-        { active: true },
-        { active: false },
-        { active: false },
-        { active: false },
-        { active: false },
-        { active: false }
+        { active: true, page: 'myTasks' },
+        { active: false, page: 'projects' },
+        { active: false, page: 'project', title: '創新產品' },
+        { active: false, page: 'project', title: '海外拓展' },
+        { active: false, page: 'project', title: '替代役招聘' },
+        { active: false, page: 'project', title: '美國市場調查' },
+        { active: false, page: 'project', title: '資金募集' },
+        { active: false, page: 'project', title: '產學合作' }
       ]
     }
   },
@@ -124,6 +146,7 @@ export default {
   methods: {
     toggleNav: function () {
       this.navClose = !this.navClose
+      this.$emit('navcover', this.navClose)
     },
     toggleActive: function (data) {
       const act = this.act
@@ -132,13 +155,25 @@ export default {
       }
       act[data].active = true
       this.navClose = true
+      this.$emit('navcover', this.navClose)
+      this.$emit('page', act[data].page)
+      this.$emit('pagetitle', act[data].title)
+    },
+    changePage: function (data) {
+      const act = this.act
+      for (var i = 0; i < act.length; i++) {
+        act[i].active = false
+      }
+      this.navClose = true
+      this.$emit('navcover', this.navClose)
+      this.$emit('page', data)
     }
   }
 }
 </script>
 
 <style lang='scss'>
-@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/base.scss';
 
 .nav {
   width: 325px;
@@ -146,6 +181,7 @@ export default {
   background-color: $accent;
   color: $white;
   position: fixed;
+  z-index: 1;
   top: 0;
   transition: all .5s;
   overflow: hidden;
@@ -260,16 +296,7 @@ export default {
   .mainList {
     height: calc(100vh - 60px - 71px - 141px);
     overflow-y: auto;
-    &::-webkit-scrollbar {
-      background: transparent;
-      border-radius: 2px;
-      height: 4px;
-      width: 4px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 2px;
-    }
+    @include scrollBar;
   }
   .info {
     position: absolute;
